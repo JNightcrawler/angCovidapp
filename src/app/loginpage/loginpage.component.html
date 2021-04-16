@@ -1,0 +1,16 @@
+<div>
+    {{formsTest.value | json}}
+    <form [formGroup]="formsTest">
+  <div class ="form-group">
+    <label>Name</label>
+    <input formControlName="username" type="text" class="form-control" placeholder="Enter Name">
+  
+  </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input formControlName="email" type="email" class="form-control" placeholder="Enter Email">
+  
+    </div> 
+    <button type="submit" (click)="onsubmit()" class="btn btn-primary">submit</button> 
+    </form>
+  </div>

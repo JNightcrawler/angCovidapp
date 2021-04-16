@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+  /*  background-color: thistle;*/
+    
+}
+input{
+    width: 95%;
+    border: none;
+    border-bottom: 1px solid #3b1414;
+    display: block;
+    outline: none;
+    height: 5px;
+    padding:5px;
+    margin: 5px;
+}
+.district{
+    width: 270px;
+    max-width: 223px;
+    height: 200px;
+    background-color: #454545;
+    margin: 3px;
+    color: white;
+}
+
+.smallcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color:white;
+    flex-wrap: wrap;
+}
+.delta{
+    margin: 2px;
+    padding: 2px;
+}

@@ -1,0 +1,87 @@
+<h2>
+    TamilNadu Scenario
+</h2>
+<div class="container">
+    <div class="navMainNumbers">
+            <div class="confirmed box" style="background-color: #3a3aa1;">
+                <div>
+                    Confirmed Case
+                </div>
+                <div>
+                    {{Confiremd | number}}
+                </div>
+            </div>  
+            <div class="recovered box" style="background-color: #3bbb51;">
+                <div>
+                    Recovered Case
+                </div>
+                <div>
+                    {{Recovered| number}}
+                </div>
+            </div> 
+            <div class="death box" style="background-color: #ad0d15;">
+                <div>
+                    Death Case
+                </div>
+                <div>
+                    {{Death | number}}
+                </div>
+            </div>
+    </div>
+    <div class="charts">
+        <h5 style="text-align: center; padding: 0;margin: 0;">Chart Reprenstation</h5>
+        <div style="display: block;">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [options]="pieChartOptions"
+                    [colors]="Colors"
+                    [chartType]="pieChartType"
+                    [plugins]="pieChartPlugins"
+                [legend]="pieChartLegend"
+                (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)" style="width: 400px;height: 300px;"></canvas>
+          </div>
+    </div>
+    <div class="newNumbers">
+        <div class="confirmed box" style="background-color: #3a3aa1;">
+            <div>
+               New Confirmed Case
+            </div>
+            <div>
+                {{NewConfiremd | number}}
+            </div>
+        </div>  
+        <div class="recovered box" style="background-color: #3bbb51;">
+            <div>
+               New Recovered Case
+            </div>
+            <div>
+                {{NewRecovered| number}}
+            </div>
+        </div> 
+        <div class="death box" style="background-color: #ad0d15;">
+            <div>
+               New  Death Case
+            </div>
+            <div>
+                {{NewDeath | number}}
+            </div>
+        </div>
+    </div>
+
+    <div class="other">
+       <div>
+           Active Cases
+          <br>
+               {{ActiveCase | number}}
+           
+       </div> 
+       <div>
+        New Active Cases
+       <br>
+            {{NewActive | number}}
+        
+    </div> 
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<app-spinner  [ngStyle]="{'display': loader}" class="spin"></app-spinner>
+<div *ngIf="isDataAvble">
+<div class="jumb">
+    <div class="container">
+      <h1 class="display-4">Covid WorldWide Graph</h1>
+      <p class="lead"> {{today | date}}</p>
+    </div>
+  </div>
+
+  <div class="todaycontainer">
+      <div class="today confirmed">
+        <div>
+            <h3>Confirmed Cases</h3>
+        </div> 
+        <p>{{todayConfirmed | number}}</p>
+      </div>
+      <div class="today recovered">
+       <div>
+        <h3>
+            Recovered Cases
+        </h3>
+       </div> 
+        <p>{{todayRecover | number}}</p>
+    </div>
+    <div class="today active">
+      <div>
+        <h3>
+            Active Cases
+        </h3>
+      </div> 
+        <p>{{todayActive | number}}</p>
+    </div>
+
+    <div class="today death">
+        <div>
+          <h3>
+              Death Cases
+          </h3>
+        </div> 
+          <p>{{todayDeath | number}}</p>
+      </div>
+
+  </div>
+  <div class="last5days" style="height: 60px; background-color: #61d0df; color: #111110;">
+   <h3>
+    Graph Based on Last 4 Days
+   </h3> 
+</div>
+  <div class="container1">
+     
+    <div class="bar">
+        <div>
+            <h1>
+                Confirmed Cases 
+            </h1>
+        </div>
+        <canvas baseChart
+            [datasets]="datas"
+            [labels]="label"
+            [options]="opts"
+            [legend]="legd"
+            [chartType]="charttype"
+        ></canvas>
+    </div>
+
+    <div class="line">
+        <div>
+            <h1>
+                Recovered Cases
+            </h1>
+        </div>
+        <canvas baseChart 
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="opts"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    ></canvas>
+        </div>
+
+    </div>
+
+</div>

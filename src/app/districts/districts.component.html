@@ -1,0 +1,23 @@
+<h2 style="display: block; text-align: center;">District Wise Data</h2>
+<div class="filter">
+        <input type="text" placeholder="Search District" [(ngModel)]="Searchterm">
+</div>
+<div class="container">
+    
+        <div *ngFor="let key of districtKeys | divfilter:Searchterm">
+            <div class="district">
+                    <h5>{{key}}</h5>
+                    <div class="smallcontainer">
+                        <div class="delta">TodayConfirmed-{{districtarr[key]?.delta.confirmed}}</div>
+                        <div class="delta" style="color: white;">Confirmed-{{districtarr[key]?.confirmed}}</div>
+
+                        <div class="delta">TodayDeath- {{districtarr[key]?.delta.deceased}}</div>
+                        <div  class="delta" style="color: white;">TotalDeath- {{districtarr[key]?.deceased}}</div>
+
+                        <div class="delta">TodayRecover - {{districtarr[key]?.delta.recovered}}</div>
+                        <div class="delta" style="color: white;">TotalRecover -{{districtarr[key]?.recovered}}</div>
+                 </div>
+                </div>
+        </div>
+   
+</div>

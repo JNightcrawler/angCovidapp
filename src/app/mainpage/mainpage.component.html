@@ -1,0 +1,63 @@
+<div class="tablepage">
+<div class="header">
+    <h1>Covid-19 Tracker</h1>      
+    <p>Covid 19 infections spread in all Countries</p>
+  </div>
+
+
+<app-spinner  [ngStyle]="{'display': loader}" class="spin"></app-spinner>
+<div class="table-responsive">
+<table class="table table-striped">
+<th> NewConfirmed</th>
+<th> TotalConfirmed</th>
+<th> TotalDeaths </th>
+<th>NewRecovered</th>
+<th>TotalRecovered</th>
+<tbody>
+<tr>
+<td>{{responses?.Global.NewConfirmed | number}}</td>
+<td>{{responses?.Global.TotalConfirmed | number}} </td>
+<td>{{responses?.Global.TotalDeaths | number}} </td>
+<td>{{responses?.Global.NewRecovered | number}} </td>
+<td>{{responses?.Global.TotalRecovered | number}} </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="maincontainer">
+<div class="maintable" >
+    <div>
+        <input type="text" placeholder="filter the table" [(ngModel)]="searchtext"/>
+    </div>
+    <div class="table-responsive">
+<table class="table table-striped">
+    <tr>
+    <th scope="col"> Country</th>
+    <th scope="col"> NewConfirmed</th>
+    <th scope="col"> TotalConfirmed </th>
+    <th scope="col">NewDeaths</th>
+    <th scope="col">TotalDeaths</th>
+    <th scope="col">  NewRecovered </th>
+    <th scope="col">  TotalRecovered </th>
+</tr>
+<tbody>
+    <tr *ngFor="let item of responses?.Countries | filtertable:searchtext| paginate: { itemsPerPage: 10, currentPage: p }">
+    <td>{{item.Country}} </td>
+    <td>{{item.NewConfirmed | number}} </td>
+    <td>{{item.TotalConfirmed | number}} </td>
+    <td>{{item.NewDeaths | number}} </td>
+    <td>{{item.TotalDeaths | number}} </td>
+    <td>{{item.NewRecovered | number}} </td>
+    <td>{{item.TotalRecovered | number}} </td>
+    </tr>
+</tbody>
+    </table>
+</div>
+</div>
+<div class="paginate">
+    <pagination-controls  (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>
+</div>
+
+

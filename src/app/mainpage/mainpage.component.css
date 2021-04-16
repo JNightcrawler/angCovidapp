@@ -1,0 +1,46 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.header{
+    height: 100px;
+    align-content: center;
+    text-align: center;
+    background-color: #323232;
+    color: whitesmoke;
+}
+.spin{
+    margin-left: 2%;
+   width: 80%;
+   height: 100vh;
+   position: fixed;
+   z-index: 100;
+   background-color: rgb(150, 170, 170,0.3); 
+}
+input{
+    float: right;
+    width: 150px;
+    border: none;
+    border-bottom: 1px solid black;
+    height: 30px;
+    padding: 5px;
+}
+input:focus{
+    outline: none;
+}
+.tablepage{
+    font-size: 15px;
+    overflow: hidden;
+}
+.maincontainer{
+    display: flex;
+    flex-direction: column;
+}
+.paginate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+pagination-controls{
+    border: 1px solid rgb(210, 210, 235);
+}
+

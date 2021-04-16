@@ -1,0 +1,74 @@
+<div class="container">
+    
+    <div class="nav">
+        <div class="Header">
+            <a>
+        <span class="text1"> COVID</span>
+        <fa-icon class="bar" [icon]="fasicons"></fa-icon>
+    </a>
+    </div>
+        <ul>
+        <li>
+            <a (click)="onclickpage('home')">
+                <fa-icon class="link" [icon]="fahome"></fa-icon>
+                <span  class="text"> CHART</span>
+            </a>
+           
+       
+        
+        </li>
+        <li>
+            <a (click)="onclickpage('login')">
+                <fa-icon class="link" [icon]="fatask"></fa-icon>
+                <span class="text"> WORLD</span>
+            </a>
+    </li>
+    <li>
+        <a (click)="onclickpage('local')">
+            <fa-icon class="link" [icon]="fasuit"></fa-icon>
+            <span class="text"> TN</span>
+        </a>
+    </li>
+        <li>
+        <a (click)="onclickpage('district')">
+            <fa-icon class="link" [icon]="fatag"></fa-icon>
+            <span class="text">DISTWISE</span>
+        </a>
+    </li>
+    <li>
+        <a (click)="onclickpage('contact')">
+            <fa-icon class="link" [icon]="fatv"></fa-icon>
+            <span class="text"> CONTACT</span>
+        </a>
+    </li>
+    </ul>
+    
+    </div>
+    <div class="mainpage">
+            <div class="if" *ngIf="item==='login'">
+                    <app-ngbarline></app-ngbarline>
+            <!-- <app-about></app-about> -->
+        </div>
+        <div class="if" *ngIf="item==='home'">
+          <!-- <app-linechart></app-linechart>-->
+           <!-- <app-ngbarchart></app-ngbarchart> -->
+          <app-mainpage></app-mainpage>
+
+        </div>
+        <div class="if" *ngIf="item==='local'">
+        <app-local></app-local>
+        </div>
+
+        <div class="if" *ngIf="item==='district'">
+            <app-districts></app-districts>
+            </div>
+
+            <div class="if" *ngIf="item==='contact'">
+                <app-contact></app-contact>
+                </div>
+          
+       
+</div>
+</div>
+
+<router-outlet></router-outlet>

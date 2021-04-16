@@ -1,0 +1,101 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.jumb{
+    background-color: #323232;
+    color: whitesmoke;
+    height: 100px;
+    width: 100%;
+}
+.todaycontainer{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.today{
+    width:250px;
+    box-sizing: border-box;
+    margin-bottom:5px;
+    height: 100px;
+    font-size: 28px;
+   font-weight: bold;
+    color: white;
+    padding: 10px;
+    box-shadow: 6px 6px 19px 2px #000000;
+}
+.confirmed{
+    background-color: #00c0ef;
+}
+.recovered{
+    background-color:#00a65a;
+}
+.active{
+    background-color:#f39c12;
+}
+.death{
+    background-color:rgba(173, 21, 1, 0.849);
+
+}
+.last5days{
+     text-align: center;
+     font-size: 30px;
+     font-weight: bold;
+     margin-top: 15px;
+     padding-top: 10px;
+     margin-bottom: 15px;
+}
+.spin{
+    margin-left: 2%;
+    width: 80%;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    background-color: rgb(150, 170, 170,0.3); 
+ }
+.container1{
+    height: 38%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   justify-items: center;
+}
+
+.bar{
+    width: 500px;
+    height: 100%;
+   
+    margin-bottom: 14px;
+    box-shadow: 6px 6px 19px 2px #000000;
+}
+h1{
+    text-align: center;
+    font-size: 60px !important;
+}
+
+.line{
+    width: 500px;
+    height: 100%;
+    box-shadow: 6px 6px 19px 2px #000000;
+}
+
+@media screen and (max-width:800px){
+    h1{
+        font-size: 20px !important;
+    }
+    h3{
+        font-size: 20px !important;
+    }
+
+    .bar{
+        width: 225px;
+        height: 100%;
+    }
+    .line{
+        width: 225px;
+        height: 100%;
+    }
+}

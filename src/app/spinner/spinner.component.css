@@ -1,0 +1,42 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.spin{
+   margin-left: 50%;
+   margin-top: 25%;
+   
+}
+
+@media only screen and (min-width:250px){
+
+   .spin{
+      margin-left: 40%;
+      margin-top: 250px;
+      
+   }
+}
+
+@media only screen and (min-width:480px){
+
+   .spin{
+      margin-left: 40%;
+      margin-top: 65%;
+      
+   }
+}
+
+@media only screen and (min-width:768px){
+
+   .spin{
+      margin-left: 49%;
+      margin-top: 42%;
+      
+   }
+}
+@media only screen and (min-width:1024px){
+
+   .spin{
+      margin-left: 49%;
+      margin-top: 42%;
+      
+   }
+}
