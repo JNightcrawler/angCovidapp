@@ -1,7 +1,7 @@
 import { dsdata } from './dsdata';
 
 export interface statedata{
-    id: string,
+    //id: string,
     state: string,
     active: number,
     confirmed: number,

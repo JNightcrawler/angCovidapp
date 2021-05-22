@@ -19,6 +19,7 @@ import { DistrictsComponent } from './districts/districts.component';
 import { DivfilterPipe } from './divfilter.pipe';
 import { ContactComponent } from './contact/contact.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

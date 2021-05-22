@@ -3,11 +3,11 @@ export interface districtIn{
     notes: string,
     active: number,
     confirmed: number,
-    deceased: number,
+    deaths: number,
     recovered: number,
-    delta: {
-      confirmed: number,
-      deceased: number,
-      recovered: number
-    }
+    
+      deltaconfirmed: number,
+      deltadeaths: number,
+      deltarecovered: number
+    
 }

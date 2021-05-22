@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { state } from './state';
 import { statedata } from '../tndata/statedata';
 import { SingleDataSet, Label } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
+import { districtdata } from "./districtdata";
+
 
 
 @Component({
@@ -15,12 +17,14 @@ import { ChartOptions } from 'chart.js';
 })
 export class LocalComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+   }
   public pieChartLabels:Label[] = ['Confirmed', 'Recored', 'Death','Active'];
   public pieChartData:SingleDataSet=[];
   public pieChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
+  
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -46,34 +50,40 @@ export class LocalComponent implements OnInit {
   NewActive:number =0;
   responsestatedata:statedata[];
 
+  public statedata:districtdata[];
   
   ngOnInit(): void {
+  
    
-    // this.req().toPromise().then(data=>{
-    //   console.log(data);
-    //   this.Response=data
-    //   console.log('local data');
-      
-    // console.log(this.Response['Tamil Nadu']);
-    // });
 
     this.reqStatedata().subscribe(data=> {
-      this.responsestatedata=data
-      this.responsestatedata= this.responsestatedata.filter((data)=>{
-        return data.id == 'IN-TN'
-      });
-      this.Confiremd = this.responsestatedata[0].confirmed;
-      this.Recovered = this.responsestatedata[0].recovered;
-      this.Death = this.responsestatedata[0].deaths;
-      this.NewConfiremd = this.responsestatedata[0].cChanges
-      this.NewRecovered = this.responsestatedata[0].rChanges;
-      this.NewDeath = this.responsestatedata[0].dChanges;
-     this.ActiveCase = this.responsestatedata[0].active;
-     this.NewActive =this.responsestatedata[0].aChanges;
-      this.pieChartData=[];
-      this.pieChartData.push(this.Confiremd);
-      this.pieChartData.push(this.Recovered);
-      this.pieChartData.push(this.Death);
+     // this.responsestatedata=data
+     
+     let stateWise;
+     console.log(data);
+     this.statedata=data.state_wise;
+      console.log(this.statedata);
+      for(let [key,value] of Object.entries(this.statedata))
+      {
+        console.log('key ->' + key)
+        if(key==='Tamil Nadu')
+        {
+          this.Confiremd = Number(value.confirmed);
+            this.Recovered = Number(value.recovered);
+            this.Death = Number(value.deaths);
+             this.NewConfiremd = Number(value.deltaconfirmed);
+             this.NewRecovered = Number(value.deltarecovered);
+             this.NewDeath = Number(value.deltadeaths);
+           this.ActiveCase = Number(value.active);
+          //  this.NewActive =this.responsestatedata[0].aChanges;
+             this.pieChartData=[];
+             this.pieChartData.push(this.Confiremd);
+             this.pieChartData.push(this.Recovered);
+             this.pieChartData.push(this.Death);
+        }
+        console.log (value);
+      }
+    
       this.pieChartData.push(this.ActiveCase);
      
       console.log(this.responsestatedata);
@@ -83,8 +93,14 @@ export class LocalComponent implements OnInit {
 
   reqStatedata():Observable<any>{
   
-    return this.http.get<any>("https://api.covidindiatracker.com/state_data.json").pipe(retry(2),catchError((error:HttpErrorResponse)=>{
-      let err="";
+   // return this.http.get<any>("https://api.covidindiatracker.com/state_data.json").pipe(retry(2),catchError((error:HttpErrorResponse)=>{
+   return this.http.get<any>("https://corona-virus-world-and-india-data.p.rapidapi.com/api_india"
+   ,{headers:{'x-rapidapi-key':'7a27db3e98mshff4950a33f9a138p162a2fjsn30277af48f8e',
+  'x-rapidapi-host':'corona-virus-world-and-india-data.p.rapidapi.com'}})
+   
+   .pipe(retry(2),catchError((error:HttpErrorResponse)=>{
+     
+   let err="";
       if(error.error instanceof ErrorEvent)
       {
         err=`error of ${error.error.message}`;
